@@ -4,6 +4,7 @@ const colors = require('colors')
 const morgan = require('morgan')
 const cors = require('cors');
 const connectDB = require('./config/db');
+//const userModel = require("../modules/userModel");
 //dot config
 dotenv.config();
 //mongodb connection
@@ -19,8 +20,8 @@ app.use(morgan('dev'))
 //routes 
 //1 test route
 app.use("/api/v1/test", require("./routes/testRoutes"));
+app.use("/api/v1/auth", require("./routes/authRoutes"));
 
-//http://localhost
 
 //port
 const PORT = process.env.PORT || 8080;
