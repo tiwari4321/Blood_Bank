@@ -34,6 +34,7 @@ const registerController = async (req, res) => {
     }
 };
 
+
 //login call back
 const loginController = async (req, res) => {
     try {
@@ -101,3 +102,4 @@ const currentUserController = async (req, res) => {
 };
 
 module.exports = { registerController, loginController, currentUserController };
+
