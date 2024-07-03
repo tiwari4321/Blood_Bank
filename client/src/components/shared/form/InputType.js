@@ -3,7 +3,7 @@ import React from "react";
 const InputType = ({labelText,labelfor,inputType,value,onChange,name}) => {
   return (
     <div>
-      <div className="mb-3">
+      <div className="mb-1">
         <label htmlFor={labelfor} className="form-label">
           {labelText}
         </label>
