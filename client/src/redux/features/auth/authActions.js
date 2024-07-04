@@ -12,6 +12,7 @@ export const userLogin = createAsyncThunk(
                 alert(data.message)
                 //toast.success(data.message)
                 localStorage.setItem('token',data.token)
+                window.location.replace("/");
                 
             }
             return data;
@@ -66,5 +67,26 @@ export const userRegister = createAsyncThunk(
       }
     }
   );
+
+
+  //current user
+export const getCurrentUser = createAsyncThunk(
+  "auth/getCurrentUser",
+  async ({ rejectWithValue }) => {
+    try {
+      const res = await API.get("/auth/current-user");
+      if (res?.data) {
+        return res?.data;
+      }
+    } catch (error) {
+      console.log(error);
+      if (error.response && error.response.data.message) {
+        return rejectWithValue(error.response.data.message);
+      } else {
+        return rejectWithValue(error.message);
+      }
+    }
+  }
+);
   
   
