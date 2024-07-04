@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import InputType from "./InputType";
 import { Link } from "react-router-dom";
-import { handleLogin, hanleRegister } from "../../../services/authService";
+import { handleLogin, handleRegister } from "../../../services/authService";
 const Form = ({ formType, submitBtn, formTitle }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +19,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
           if (formType === "login")
             return handleLogin(e, email, password, role);
           else if (formType === "register")
-            return hanleRegister(
+            return handleRegister(
               e,
               name,
               role,
