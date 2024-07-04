@@ -29,14 +29,14 @@ export const handleRegister = (
     store.dispatch(
       userRegister({
         name,
-              role,
-              email,
-              password,
-              organisationName,
-              hospitalName,
-              website,
-              address,
-              phone
+        role,
+        email,
+        password,
+        phone,
+        organisationName,
+        address,
+        hospitalName,
+        website,
       })
     );
   } catch (error) {
