@@ -34,23 +34,23 @@ export const userRegister = createAsyncThunk(
         role,
         email,
         password,
+        phone,
         organisationName,
-        hospitalName,
-        website,
         address,
-        phone},{ rejectWithValue }
+        hospitalName,
+        website},{ rejectWithValue }
     ) => {
       try {
         const { data } = await API.post('/auth/register', {
-          name,
+              name,
               role,
               email,
               password,
+              phone,
               organisationName,
-              hospitalName,
-              website,
               address,
-              phone
+              hospitalName,
+              website
         });
         if (data.success) {
           alert(data.message);
