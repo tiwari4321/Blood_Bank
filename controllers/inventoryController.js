@@ -1,19 +1,21 @@
-const userModel = require('../models/userModel')
+
 const inventoryModel = require('../models/inventoryModel')
+const userModel = require("../models/userModel");
+
 
 const createInventoryController = async (req, res) => {
   try {
-    const { email, inventoryType } = req.body;
+    const { email, inventoryType, user } = req.body;
     //validation
-    const user = await userModel.findOne({ email })
-    if (!user) {
+    const User = await userModel.findOne({ email })
+    if (!User) {
       throw new Error("User Not Found")
     }
 
-    if (inventoryType === "in" && user.role !== "donar") {
+    if (inventoryType === "in" && User.role !== "donar") {
       throw new Error("Not a donar account")
     }
-    if (inventoryType === "out" && user.role !== "hospital") {
+    if (inventoryType === "out" && User.role !== "hospital") {
       throw new Error("Not a hospital");
     }
     const inventory = new inventoryModel(req.body)
@@ -32,7 +34,6 @@ const createInventoryController = async (req, res) => {
     })
   }
 };
-
 
 
 
@@ -61,3 +62,5 @@ const getInventoryController = async (req, res) => {
   }
 };
 module.exports = { createInventoryController, getInventoryController };
+
+
