@@ -2,9 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* overflow: hidden; */
 }
 
-
+/* ===========
+==== FORM
+=========== */
 
 .form-banner img {
   height: 100%;
@@ -16,7 +19,6 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-
 }
 
 /* =============
@@ -45,7 +47,6 @@
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
@@ -59,7 +60,6 @@
   background-color: black !important;
   color: white !important;
 }
-
 .nav-link,
 .navbar-brand {
   background-color: black !important;

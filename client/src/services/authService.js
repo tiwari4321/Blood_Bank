@@ -5,13 +5,14 @@ export const handleLogin = (e, email, password, role) => {
   e.preventDefault();
   try {
     if (!role || !email || !password) {
-      return alert("Please Provide All field");
+      return alert("Please Privde All Feilds");
     }
     store.dispatch(userLogin({ email, password, role }));
   } catch (error) {
     console.log(error);
   }
 };
+
 export const handleRegister = (
   e,
   name,
