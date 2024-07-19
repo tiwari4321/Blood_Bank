@@ -99,6 +99,7 @@ const Sidebar = () => {
             </div>
           )}
 
+<<<<<<< HEAD
           {/* {userMenu.map((menu) => {
             const isActive = location.pathname === menu.path;
             return (
@@ -111,6 +112,22 @@ const Sidebar = () => {
               </div>
             );
           })} */}
+=======
+                    {/* {userMenu.map((menu) => {
+                        const isActive = location.pathname === menu.path;
+                        return (
+                            <div
+                                className={`menu-item ${isActive && "active"}`}
+                                key={menu.name}
+                            >
+                                <i className={menu.icon}></i>
+                                <Link to={menu.path}>{menu.name}</Link>
+                            </div>
+                        );
+                    })} */}
+                </div>
+            </div>
+>>>>>>> 41e7e2de5b40969e6aa470a3b1a12afc3bbc4fc3
         </div>
       </div>
     </div>

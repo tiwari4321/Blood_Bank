@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 const mongoose = require("mongoose");
 const inventoryModel = require("../models/inventoryModel");
 const userModel = require("../models/userModel");
+=======
+
+const inventoryModel = require('../models/inventoryModel')
+const userModel = require("../models/userModel");
+
+>>>>>>> 41e7e2de5b40969e6aa470a3b1a12afc3bbc4fc3
 
 // CREATE INVENTORY
 const createInventoryController = async (req, res) => {
   try {
+<<<<<<< HEAD
     const { email } = req.body;
     //validation
     const user = await userModel.findOne({ email });
@@ -76,6 +84,23 @@ const createInventoryController = async (req, res) => {
     //save record
     const inventory = new inventoryModel(req.body);
     await inventory.save();
+=======
+    const { email, inventoryType, user } = req.body;
+    //validation
+    const User = await userModel.findOne({ email })
+    if (!User) {
+      throw new Error("User Not Found")
+    }
+
+    if (inventoryType === "in" && User.role !== "donar") {
+      throw new Error("Not a donar account")
+    }
+    if (inventoryType === "out" && User.role !== "hospital") {
+      throw new Error("Not a hospital");
+    }
+    const inventory = new inventoryModel(req.body)
+    await inventory.save()
+>>>>>>> 41e7e2de5b40969e6aa470a3b1a12afc3bbc4fc3
     return res.status(201).send({
       success: true,
       message: "New Blood Reocrd Added",
@@ -90,7 +115,13 @@ const createInventoryController = async (req, res) => {
   }
 };
 
+<<<<<<< HEAD
 // GET ALL BLOOD RECORS
+=======
+
+
+// GET ALL BLOOD RECORDS
+>>>>>>> 41e7e2de5b40969e6aa470a3b1a12afc3bbc4fc3
 const getInventoryController = async (req, res) => {
   try {
     const inventory = await inventoryModel
@@ -114,6 +145,7 @@ const getInventoryController = async (req, res) => {
     });
   }
 };
+<<<<<<< HEAD
 // GET Hospital BLOOD RECORS
 const getInventoryHospitalController = async (req, res) => {
   try {
@@ -271,3 +303,8 @@ module.exports = {
   getInventoryHospitalController,
   getRecentInventoryController,
 };
+=======
+module.exports = { createInventoryController, getInventoryController };
+
+
+>>>>>>> 41e7e2de5b40969e6aa470a3b1a12afc3bbc4fc3
